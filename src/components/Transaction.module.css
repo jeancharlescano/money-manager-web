@@ -1,0 +1,40 @@
+.TransactionListContainer {
+  width: 100%;
+  height: 15%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.DateTxt {
+  font-size: small;
+  font-weight: bold;
+}
+
+.TransacDesc {
+  display: flex;
+  padding: 0 45% 0 10%;
+  justify-content: space-between;
+}
+
+.PriceTxtGreen {
+  font-size: medium;
+  font-weight: bold;
+  color: green;
+}
+
+.PriceTxtRed {
+  font-size: medium;
+  font-weight: bold;
+  color: red;
+}
+
+.TransacTxt {
+  font-size: small;
+}
+
+.TransacType {
+  color: #5e5e5e;
+  font-size: x-small;
+  text-align: right;
+}
