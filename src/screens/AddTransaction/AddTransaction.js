@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { createTx } from "../../utilities/transaction";
 import styles from "./AddTransaction.module.css";
 import dayjs from "dayjs";
@@ -8,10 +9,11 @@ export const AddTransaction = ({ navigation }) => {
   const [type, setType] = useState("");
   const [description, setDescription] = useState("");
   const [txType, setTxType] = useState(false);
+  const navigate = useNavigate();
 
   const insertTx = async () => {
     const date = dayjs().format("DD/MM/YYYY");
-    let transaction = {
+    const transaction = {
       amount: amount,
       isEarning: txType,
       paymentType: type.toLowerCase(),
@@ -20,91 +22,62 @@ export const AddTransaction = ({ navigation }) => {
     };
     try {
       await createTx(transaction);
-      navigation.navigate("Home");
+      navigate("/");
     } catch (error) {
       console.log("🚀 ~ file: AddTransaction.js:36 ~ insertTx ~ error", error);
     }
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.form}>
-        <div className={styles.montantForm}>
-          <div className={styles.formTxt}>Montant :</div>
+    <div className={styles.Container}>
+      <div className={styles.FormContainer}>
+        <div className={styles.Form}>
+          <div className={styles.FormTxt}>Montant :</div>
           <input
             type="number"
-            className={styles.formInput}
+            className={styles.FormInput}
             placeholder="Saisir le montant"
-            onChangediv={(value) => {
-              setAmount(value);
-              console.log(
-                "🚀 ~ file: AddTransaction.js:43 ~ AddTransaction ~ amount",
-                amount
-              );
+            onChange={(e) => {
+              setAmount(e.target.value);
             }}
-            keyboardType="numeric"
           />
         </div>
-        <div className={styles.montantForm}>
-          <div className={styles.formTxt}>Type :</div>
+        <div className={styles.Form}>
+          <div className={styles.FormTxt}>Type :</div>
           <input
             type="text"
-            className={styles.formInput}
+            className={styles.FormInput}
             placeholder="Saisir type de paiement"
-            onChangediv={(value) => {
-              setType(value);
-              console.log(
-                "🚀 ~ file: AddTransaction.js:55 ~ AddTransaction ~ type",
-                type
-              );
+            onChange={(e) => {
+              setType(e.target.value);
             }}
           />
         </div>
-        <div className={styles.montantForm}>
-          <div className={styles.formTxt}>Description :</div>
-          <input
+        <div className={styles.Form}>
+          <div className={styles.FormTxt}>Description :</div>
+          <textarea
             type="text"
-            className={styles.formInputDes}
+            className={styles.FormInputDes}
             placeholder="Saisir la description"
-            multiline
-            blurOnSubmit
-            onChangediv={(value) => {
-              setDescription(value);
-              console.log(
-                "🚀 ~ file: AddTransaction.js:66 ~ AddTransaction ~ Description",
-                description
-              );
+            onChange={(e) => {
+              setDescription(e.target.value);
             }}
           />
         </div>
-        <div className={styles.txTypeForm}>
-          <div className={styles.txTypeBtn} onClick={() => setTxType(false)}>
-            <label className={styles.txTypediv} for="Achat">
-              Achat
-            </label>
-            <input
-              type="radio"
-              value="0"
-              status={txType === false ? "checked" : "unchecked"}
-              id="Achat"
-            />
+        <div className={styles.TxTypeRadio}>
+          <div onClick={() => setTxType(false)}>
+            <label className={styles.FormTxt}>Achat</label>
+            <input type="radio" value="0" id="Achat" name="txType" />
           </div>
-          <div className={styles.txTypeBtn} onClick={() => setTxType(true)}>
-            <label className={styles.txTypediv} for="Gain">
-              Gain
-            </label>
-            <input
-              type="radio"
-              value="1"
-              status={txType === true ? "checked" : "unchecked"}
-              id="Gain"
-            />
+          <div onClick={() => setTxType(true)}>
+            <label className={styles.FormTxt}>Gain</label>
+            <input type="radio" value="1" id="Gain" name="txType" />
           </div>
         </div>
       </div>
-      <div>
-        <div className={styles.btnField} onClick={insertTx}>
-          <div className={styles.btndiv}>Terminer</div>
+      <div className={styles.Bottom}>
+        <div className={styles.BtnContainer} onClick={insertTx}>
+          <div className={styles.BtnText}>Terminer</div>
         </div>
       </div>
     </div>

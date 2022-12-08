@@ -11,13 +11,8 @@ export const Home = () => {
 
   const getAllTransactions = async () => {
     const transactions = await getAllTx();
-    console.log(
-      "🚀 ~ file: Home.js:28 ~ getAllTransactions ~ transactions",
-      transactions
-    );
     let incrBalance = 0;
     for (const transaction of transactions) {
-      console.log(transaction.amount);
       transaction.is_earning === false
         ? (incrBalance -= transaction.amount)
         : (incrBalance += transaction.amount);
