@@ -12,7 +12,7 @@ export const AddTransaction = ({ navigation }) => {
   const navigate = useNavigate();
 
   const insertTx = async () => {
-    const date = dayjs().format("DD/MM/YYYY");
+    const date = dayjs().format("DD/MM/YYYY HH:mm");
     const transaction = {
       amount: amount,
       isEarning: txType,
@@ -24,7 +24,7 @@ export const AddTransaction = ({ navigation }) => {
       await createTx(transaction);
       navigate("/");
     } catch (error) {
-      console.log("🚀 ~ file: AddTransaction.js:36 ~ insertTx ~ error", error);
+      console.log("🚀 ~ file: AddTransaction.js:27 ~ insertTx ~ error", error);
     }
   };
 

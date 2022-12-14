@@ -28,7 +28,7 @@ export const Home = () => {
   return (
     <div className={styles.Container}>
       <div className={styles.BalanceContainer}>
-        <div className={styles.Balance}>{balance} €</div>
+        <div className={styles.Balance}>{Number(balance).toFixed(2)} €</div>
       </div>
       <div className={styles.BtnContainer}>
         <div className={styles.TxtTransaction} onClick={() => navigate("/tx")}>
