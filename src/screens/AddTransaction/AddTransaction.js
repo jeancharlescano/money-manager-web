@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { createTx } from "../../utilities/transaction";
 import styles from "./AddTransaction.module.css";
-import dayjs from "dayjs";
 
 export const AddTransaction = ({ navigation }) => {
   const [amount, setAmount] = useState(0);
@@ -12,7 +11,8 @@ export const AddTransaction = ({ navigation }) => {
   const navigate = useNavigate();
 
   const insertTx = async () => {
-    const date = dayjs().format("DD/MM/YYYY HH:mm");
+    const date = new Date();
+    console.log("🚀 ~ file: AddTransaction.js:16 ~ insertTx ~ date", date);
     const transaction = {
       amount: amount,
       isEarning: txType,

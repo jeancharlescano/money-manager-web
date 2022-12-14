@@ -6,7 +6,7 @@ export const Transaction = ({ transaction }) => {
   return (
     <div className={styles.TransactionListContainer}>
       <div className={styles.DateTxt}>
-        {dayjs(transaction.date).format("DD/MM/YYYY HH:MM:ss")}
+        {dayjs(transaction.date).format("DD/MM/YYYY HH:mm:ss")}
       </div>
       <div className={styles.TransacDesc}>
         {transaction.is_earning === true ? (
