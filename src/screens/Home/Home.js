@@ -6,6 +6,7 @@ import styles from "./Home.module.css";
 
 export const Home = () => {
   const [operations, setOperations] = useState([]);
+  console.log("🚀 ~ file: Home.js:9 ~ Home ~ operations", operations);
   const [balance, setBalance] = useState();
   const navigate = useNavigate();
 
@@ -36,8 +37,8 @@ export const Home = () => {
         </div>
       </div>
       <div className={styles.List}>
-        {operations.map((operation, key) => (
-          <Transaction transaction={operation} key={key} />
+        {operations.map((operation) => (
+          <Transaction transaction={operation} />
         ))}
       </div>
     </div>
