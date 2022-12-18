@@ -2,6 +2,7 @@ import React from "react";
 import useSWR from "swr";
 import { useParams } from "react-router-dom";
 import { fetcher } from "../../utilities/fetcher.js";
+import styles from "./Detail.module.css";
 
 export const Detail = () => {
   const { id } = useParams();
@@ -16,14 +17,44 @@ export const Detail = () => {
     console.log("🚀 ~ file: Detail.js:17 ~ Detail ~ data", data);
 
     return (
-      <>
-        <div>{data[0].id}</div>
-        <div>{data[0].amount}</div>
-        <div>{data[0].is_earning ? "true" : "false"}</div>
-        <div>{data[0].date}</div>
-        <div>{data[0].payment_type}</div>
-        <div>{data[0].description}</div>
-      </>
+      <div className={styles.container}>
+        <div className={styles.display}>
+          <label className={styles.title}>Montant :</label>
+          <div className={styles.data}>{data[0].amount}</div>
+        </div>
+        <div className={styles.spacerCt}>
+          <div className={styles.spacer}></div>
+        </div>
+
+        <div className={styles.display}>
+          <label className={styles.title}>Date :</label>
+          <div className={styles.data}>{data[0].date}</div>
+        </div>
+        <div className={styles.spacerCt}>
+          <div className={styles.spacer}></div>
+        </div>
+        <div className={styles.display}>
+          <label className={styles.title}>Méthode :</label>
+          <div className={styles.data}>{data[0].payment_type}</div>
+        </div>
+        <div className={styles.spacerCt}>
+          <div className={styles.spacer}></div>
+        </div>
+        <div className={styles.display}>
+          <label className={styles.title}>Type :</label>
+          <div className={styles.data}>
+            {data[0].is_earning ? "Gain" : "Achat"}
+          </div>
+        </div>
+        <div className={styles.spacerCt}>
+          <div className={styles.spacer}></div>
+        </div>
+        <div className={styles.display}>
+          <label className={styles.title}>Description :</label>
+          <div className={styles.data}>{data[0].description}</div>
+        </div>
+        <div></div>
+      </div>
     );
   }
 };

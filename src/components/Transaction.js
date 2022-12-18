@@ -9,7 +9,6 @@ export const Transaction = ({ transaction }) => {
     <div
       className={styles.TransactionListContainer}
       onClick={() => {
-        console.log(transaction.id);
         navigate(`/tx/${transaction.id}`);
       }}
     >
