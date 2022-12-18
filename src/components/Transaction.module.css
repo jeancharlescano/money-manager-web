@@ -13,10 +13,13 @@
 
 .TransacDesc {
   display: flex;
-  padding: 0 45% 0 10%;
-  justify-content: space-between;
+  align-items: center;
+  margin: 0 2em;
 }
 
+.Amount {
+  width: 40%;
+}
 .PriceTxtGreen {
   font-size: medium;
   font-weight: bold;
@@ -27,6 +30,9 @@
   font-size: medium;
   font-weight: bold;
   color: red;
+}
+.Description {
+  width: 60%;
 }
 
 .TransacTxt {

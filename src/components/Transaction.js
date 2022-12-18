@@ -18,15 +18,17 @@ export const Transaction = ({ transaction }) => {
       </div>
       <div className={styles.TransacDesc}>
         {transaction.is_earning === true ? (
-          <>
+          <div className={styles.Amount}>
             <div className={styles.PriceTxtGreen}>{transaction.amount} €</div>
-          </>
+          </div>
         ) : (
-          <>
+          <div className={styles.Amount}>
             <div className={styles.PriceTxtRed}>{transaction.amount} €</div>
-          </>
+          </div>
         )}
-        <div className={styles.TransacTxt}>{transaction.description}</div>
+        <div className={styles.Description}>
+          <div className={styles.TransacTxt}>{transaction.description}</div>
+        </div>
       </div>
       <div className={styles.TransacType}>{transaction.payment_type}</div>
     </div>
