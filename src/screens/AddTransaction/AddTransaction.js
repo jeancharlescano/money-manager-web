@@ -44,14 +44,18 @@ export const AddTransaction = ({ navigation }) => {
         </div>
         <div className={styles.Form}>
           <div className={styles.FormTxt}>Type :</div>
-          <input
-            type="text"
+          <select
+            name="txType"
             className={styles.FormInput}
-            placeholder="Saisir type de paiement"
             onChange={(e) => {
               setType(e.target.value);
             }}
-          />
+          >
+            <option value="carte">Carte</option>
+            <option value="virement">Virement</option>
+            <option value="espece">Espèce</option>
+            <option value="cheque">Chèque</option>
+          </select>
         </div>
         <div className={styles.Form}>
           <div className={styles.FormTxt}>Description :</div>
