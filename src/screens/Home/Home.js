@@ -6,7 +6,6 @@ import styles from "./Home.module.css";
 
 export const Home = () => {
   const [operations, setOperations] = useState([]);
-  console.log("🚀 ~ file: Home.js:9 ~ Home ~ operations", operations);
   const [balance, setBalance] = useState();
   const navigate = useNavigate();
 

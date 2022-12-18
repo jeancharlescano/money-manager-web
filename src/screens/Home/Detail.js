@@ -3,6 +3,7 @@ import useSWR from "swr";
 import { useParams } from "react-router-dom";
 import { fetcher } from "../../utilities/fetcher.js";
 import styles from "./Detail.module.css";
+import dayjs from "dayjs";
 
 export const Detail = () => {
   const { id } = useParams();
@@ -28,7 +29,9 @@ export const Detail = () => {
 
         <div className={styles.display}>
           <label className={styles.title}>Date :</label>
-          <div className={styles.data}>{data[0].date}</div>
+          <div className={styles.data}>
+            {dayjs(data[0].date).format("DD/MM/YYYY HH:mm:ss")}
+          </div>
         </div>
         <div className={styles.spacerCt}>
           <div className={styles.spacer}></div>
