@@ -5,14 +5,13 @@ import styles from "./AddTransaction.module.css";
 
 export const AddTransaction = ({ navigation }) => {
   const [amount, setAmount] = useState(0);
-  const [type, setType] = useState("");
+  const [type, setType] = useState("carte");
   const [description, setDescription] = useState("");
   const [txType, setTxType] = useState(false);
   const navigate = useNavigate();
 
   const insertTx = async () => {
     const date = new Date();
-    console.log("🚀 ~ file: AddTransaction.js:16 ~ insertTx ~ date", date);
     const transaction = {
       amount: amount,
       isEarning: txType,
