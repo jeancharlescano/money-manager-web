@@ -36,8 +36,8 @@ export const Home = () => {
         </div>
       </div>
       <div className={styles.List}>
-        {operations.map((operation) => (
-          <Transaction transaction={operation} />
+        {operations.map((operation, key) => (
+          <Transaction key={key} transaction={operation} />
         ))}
       </div>
     </div>

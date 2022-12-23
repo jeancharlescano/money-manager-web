@@ -15,8 +15,6 @@ export const Detail = () => {
 
   if (error) return <div>failed to load</div>;
   if (data) {
-    console.log("🚀 ~ file: Detail.js:17 ~ Detail ~ data", data);
-
     return (
       <div className={styles.container}>
         <div className={styles.display}>
