@@ -9,7 +9,7 @@ export const Detail = () => {
   const { id } = useParams();
 
   const { data, error } = useSWR(
-    `${process.env.REACT_APP_API_URL}tx/${id}`,
+    `${process.env.REACT_APP_API_URL}/tx/${id}`,
     fetcher
   );
 

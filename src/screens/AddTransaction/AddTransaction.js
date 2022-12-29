@@ -39,6 +39,7 @@ export const AddTransaction = () => {
             className={styles.FormInput}
             placeholder="Saisir le montant"
             ref={amountRef}
+            step=".01"
           />
         </div>
         <div className={styles.Form}>
