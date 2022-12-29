@@ -3,30 +3,32 @@ import { useNavigate } from "react-router-dom";
 import { createTx } from "../../utilities/transaction";
 import styles from "./AddTransaction.module.css";
 
-export const AddTransaction = () => {
+export const AddTransaction = ({ navigation }) => {
   const amountRef = useRef();
   const typeRef = useRef();
   const descriptionRef = useRef();
-  const [txType, setTxType] = useState(false);
 
+  const [amount, setAmount] = useState(0);
+  const [type, setType] = useState("");
+  const [description, setDescription] = useState("");
   const navigate = useNavigate();
 
-  const onSubmit = async (e) => {
-    e.preventDefault();
-    const date = new Date();
-    const transaction = {
-      amount: amountRef.current.value,
-      paymentType: typeRef.current.value.toLowerCase(),
-      description: descriptionRef.current.value,
-      isEarning: txType,
-      date: date,
-    };
-    try {
-      await createTx(transaction);
-      navigate("/");
-    } catch (error) {
-      console.log("🚀 ~ file: AddTransaction.js:27 ~ insertTx ~ error", error);
-    }
+  const onSubmit = async () => {
+    // const date = new Date();
+    // console.log("🚀 ~ file: AddTransaction.js:16 ~ insertTx ~ date", date);
+    // const transaction = {
+    //   amount: amount,
+    //   isEarning: txType,
+    //   paymentType: type.toLowerCase(),
+    //   description: description,
+    //   date: date,
+    // };
+    // try {
+    //   await createTx(transaction);
+    //   navigate("/");
+    // } catch (error) {
+    //   console.log("🚀 ~ file: AddTransaction.js:27 ~ insertTx ~ error", error);
+    // }
   };
 
   return (
